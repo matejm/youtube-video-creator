@@ -19,9 +19,11 @@ URLS = set([
 ])
 
 MUSIC_URLS = [
-    'https://www.youtube.com/watch?v=4D-LoMTbvx4',
-    'https://www.youtube.com/watch?v=L1ztUM7VZDQ',
-    'https://www.youtube.com/watch?v=PRCKSJ7W1rA',
+    ('https://youtu.be/QglaLzo_aPk',
+     'Track: Julius Dreisig & Zeus X Crona - Invisible [NCS Release]\n'
+     'Music provided by NoCopyrightSounds.\n'
+     'Watch: https://youtu.be/QglaLzo_aPk\n'
+     'Free Download / Stream: http://ncs.io/InvisibleYO'),
 ]
 
 UPLOADED_DIR = 'uploaded'
@@ -45,8 +47,10 @@ def main():
     music_name = 'music.m4a'
     music_name = os.path.join(download.DOWNLOAD_DIR, music_name)
 
+    music_url, music_desc = random.choice(MUSIC_URLS)
+
     download.download_music(
-        random.choice(MUSIC_URLS), music_name
+        music_url, music_name
     )
     
     video_processing.create_video(
@@ -60,7 +64,7 @@ def main():
     upload_video(
         video_name,
         get_title(),
-        get_description(sources),
+        get_description(sources, music_desc),
         'Comedy',
         'Funny'
     )

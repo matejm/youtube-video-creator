@@ -7,7 +7,7 @@ def upload_video(video_name, title, description, category, tags):
     # maybe this is ok https://www.reddit.com/r/youtube/comments/35kkwz/automate_youtube_uploads_and_script_youtube_on/
 
     command = (f'youtube-upload '
-        f'--title="{title}"' 
+        f'--title="{title}" ' 
         f'--description="{description}" '
         f'--category="{category}" '
         f'--tags="{tags}" '
@@ -17,6 +17,7 @@ def upload_video(video_name, title, description, category, tags):
         '--privacy public '
         f'{video_name}')
 
+    print()
     print(command)
     
     print('\n\n\n\n' + '=' * 80)
