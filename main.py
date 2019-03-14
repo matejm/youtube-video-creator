@@ -6,28 +6,9 @@ from description import get_title, get_description
 from youtube_upload import upload_video
 import download
 import video_processing
-
-URLS = set([
-    'https://api.reddit.com/r/gifs/top',
-    'https://api.reddit.com/r/funnyvideos/top',
-    'https://api.reddit.com/r/funny/top',
-    'https://api.reddit.com/r/therewasanattempt/top',
-    'https://api.reddit.com/r/mademesmile/top',
-    'https://api.reddit.com/r/youseeingthisshit/top',
-    'https://api.reddit.com/r/HoldMyBeer/top',
-    'https://api.reddit.com/r/WTF/top',
-])
-
-MUSIC_URLS = [
-    ('https://youtu.be/QglaLzo_aPk',
-     'Track: Julius Dreisig & Zeus X Crona - Invisible [NCS Release]\n'
-     'Music provided by NoCopyrightSounds.\n'
-     'Watch: https://youtu.be/QglaLzo_aPk\n'
-     'Free Download / Stream: http://ncs.io/InvisibleYO'),
-]
+from data import MUSIC_URLS, URLS
 
 UPLOADED_DIR = 'uploaded'
-
 
 def main():
     Logger.log('Started. Creating dirs.')

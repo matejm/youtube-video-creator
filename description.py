@@ -1,5 +1,8 @@
+import random
+from data import TITLES
+
 def get_title():
-    return 'Funny videos compilation | Try not to laugh challenge'
+    return random.choice(TITLES)
 
 def get_description(sources, music):
     return ('Funny videos.\n\n' +
