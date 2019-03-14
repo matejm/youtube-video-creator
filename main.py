@@ -59,7 +59,7 @@ def main():
         video_name
     )
 
-    Logger.log('Created video {}'.format(video_name))
+    Logger.log(f'Created video {video_name}')
 
     upload_video(
         video_name,

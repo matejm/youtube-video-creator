@@ -4,8 +4,6 @@ from logger import Logger
 def upload_video(video_name, title, description, category, tags):
     Logger.log(f'Uploading video {video_name} to Youtube.')
 
-    # maybe this is ok https://www.reddit.com/r/youtube/comments/35kkwz/automate_youtube_uploads_and_script_youtube_on/
-
     command = (f'youtube-upload '
         f'--title="{title}" ' 
         f'--description="{description}" '

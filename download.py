@@ -9,6 +9,8 @@ DOWNLOAD_DIR = '/tmp/youtube-video-creator'
 
 MIN_UPVOTES = 500
 
+CENSOR_NSFW = True
+
 
 def is_video_url(url):
     # try to guess if this is video url
@@ -17,7 +19,7 @@ def is_video_url(url):
     if url[-4:] == 'gifv':
         return True
 
-    Logger.log('Guessing that {} is not a video.'.format(url))
+    Logger.log(f'Guessing that {url} is not a video.')
     return False
 
 
@@ -26,7 +28,7 @@ def get_posts_and_download(url):
     sources = []
     
     if r.ok:
-        Logger.log('Downloaded webpage {}'.format(url))
+        Logger.log(f'Downloaded webpage {url}')
 
         posts = r.json()['data']['children']
 
@@ -36,7 +38,7 @@ def get_posts_and_download(url):
                 sources.append(source)
 
     else:
-        Logger.warn('Failed to download page {}'.format(url))
+        Logger.warn(f'Failed to download page {url}')
 
     return sources
 
@@ -50,8 +52,14 @@ def parse_post_and_download(post):
     media = post['media']
     video = None
 
+    if CENSOR_NSFW:
+        is_nsfw = post['over_18']
+        if is_nsfw:
+            Logger.log(f'Skipping post {title}, it is marked as NSFW.')
+            return None
+
     if upvotes < MIN_UPVOTES:
-        Logger.log('Skipping post {}, not enough upvotes.'.format(title))
+        Logger.log(f'Skipping post {title}, not enough upvotes.')
         return None
 
     Logger.log('Post "{}"'.format(title))
@@ -89,14 +97,12 @@ def download_video(video, filename):
         Logger.error(e)
         return False
 
-    Logger.log('Loaded {}, saved to {}'.format(video, filename))
+    Logger.log(f'Loaded {video}, saved to {filename}')
     return True
 
 
 def download_music(url, filename):
-    print(filename)
-
-    Logger.log('Downloading music from {}'.format(url))
+    Logger.log(f'Downloading music from {url}')
     ydl_opts = {
         'format': 'bestaudio/best',
         'postprocessors': [{
