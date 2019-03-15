@@ -95,6 +95,12 @@ def download_video(video, filename):
     except Exception as e:
         Logger.error('Downloading {} failed'.format(video))
         Logger.error(e)
+
+        try:  # remove file if it was already created
+            os.remove(os.path.join(DOWNLOAD_DIR, filename))
+        except Exception:
+            pass
+
         return False
 
     Logger.log(f'Loaded {video}, saved to {filename}')

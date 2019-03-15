@@ -30,11 +30,17 @@ def create_video(dirname, music_name, video_name):
         if filename[-4:] != '.mp4':
             continue
 
-        clip = VideoFileClip(
-            os.path.join(dirname, filename),
-            target_resolution=(1080, None),
-            audio=False
-        )
+        try:
+            clip = VideoFileClip(
+                os.path.join(dirname, filename),
+                target_resolution=(1080, None),
+                audio=False
+            )
+        except Exception as e:
+            Logger.error(f'Failed to load clip {filename}')
+            Logger.error(e)
+            continue
+
         if clip.duration > MAX_CLIP_DURATION:
             continue
 

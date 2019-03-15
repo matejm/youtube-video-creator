@@ -10,18 +10,48 @@ URLS = set([
 ])
 
 MUSIC_URLS = [
-    ('https://youtu.be/QglaLzo_aPk',
-     'Track: Julius Dreisig & Zeus X Crona - Invisible [NCS Release]\nMusic provided by NoCopyrightSounds.\nWatch: https://youtu.be/QglaLzo_aPk\nFree Download / Stream: http://ncs.io/InvisibleYO'),
-    ('https://www.youtube.com/watch?v=E8VwtjhMFJ8',
-    'Track: Futuristik - Forgive Me [NCS Release]\nMusic provided by NoCopyrightSounds.\nWatch: https://youtu.be/E8VwtjhMFJ8\nFree Download / Stream: http://ncs.io/ForgiveMe'),
-    ('https://www.youtube.com/watch?v=Hj5oPx_FiYk',
-    'Track: Marin Hoxha - Endless [NCS Release]\nMusic provided by NoCopyrightSounds.\nWatch: Free Download / Stream: http:/\nncs.io/Endless'),
-    ('https://www.youtube.com/watch?v=MvTYrjX4ve4',
-    'Track: Jim Yosef - Moonlight [NCS Release]\nMusic provided by NoCopyrightSounds.\nWatch: https://youtu.be/MvTYrjX4ve4\nFree Download / Stream: http://ncs.io/Moonlight'),
-    ('https://www.youtube.com/watch?v=NxpmN_f7AbY',
-    'Track: Approaching Nirvana & Alex Holmes - Darkness Comes [NCS Release]\nMusic provided by NoCopyrightSounds.\nWatch: https://youtu.be/NxpmN_f7AbY\nFree Download / Stream: http://ncs.io/DarknessComes'),
-    ('https://www.youtube.com/watch?v=tcHJodG5hX8',
-    'Track: Unknown Brain - Why Do I? (ft. Bri Tolani) [NCS Release]\nMusic provided by NoCopyrightSounds.\nWatch: https://youtu.be/tcHJodG5hX8\nFree Download / Stream: http://ncs.io/WhyDoIYO')
+    (
+        'https://youtu.be/QglaLzo_aPk',
+        'Track: Julius Dreisig & Zeus X Crona - Invisible [NCS Release]\n'
+        'Music provided by NoCopyrightSounds.\n'
+        'Watch: https://youtu.be/QglaLzo_aPk\n'
+        'Free Download / Stream: http://ncs.io/InvisibleYO'
+    ),
+    (
+        'https://www.youtube.com/watch?v=E8VwtjhMFJ8',
+        'Track: Futuristik - Forgive Me [NCS Release]\n'
+        'Music provided by NoCopyrightSounds.\n'
+        'Watch: https://youtu.be/E8VwtjhMFJ8\n'
+        'Free Download / Stream: http://ncs.io/ForgiveMe'
+    ),
+    (
+        'https://www.youtube.com/watch?v=Hj5oPx_FiYk',
+        'Track: Marin Hoxha - Endless [NCS Release]\n'
+        'Music provided by NoCopyrightSounds.\n'
+        'Watch: Free Download / Stream: http:/\n'
+        'ncs.io/Endless'
+    ),
+    (
+        'https://www.youtube.com/watch?v=MvTYrjX4ve4',
+        'Track: Jim Yosef - Moonlight [NCS Release]'
+        '\nMusic provided by NoCopyrightSounds.'
+        '\nWatch: https://youtu.be/MvTYrjX4ve4'
+        '\nFree Download / Stream: http://ncs.io/Moonlight'
+    ),
+    (
+        'https://www.youtube.com/watch?v=NxpmN_f7AbY',
+        'Track: Approaching Nirvana & Alex Holmes - Darkness Comes [NCS Release]'
+        '\nMusic provided by NoCopyrightSounds.'
+        '\nWatch: https://youtu.be/NxpmN_f7AbY'
+        '\nFree Download / Stream: http://ncs.io/DarknessComes'
+    ),
+    (
+        'https://www.youtube.com/watch?v=tcHJodG5hX8',
+        'Track: Unknown Brain - Why Do I? (ft. Bri Tolani) [NCS Release]'
+        '\nMusic provided by NoCopyrightSounds.\n'
+        'Watch: https://youtu.be/tcHJodG5hX8\n'
+        'Free Download / Stream: http://ncs.io/WhyDoIYO'
+    )
 ]
 
 TITLES = [
