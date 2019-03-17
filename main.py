@@ -20,10 +20,12 @@ def main():
     video_name = '{}-{}.mp4'.format(datetime.date.today().isoformat(), random.randint(0, 10000))
     video_name = os.path.join(UPLOADED_DIR, video_name)
 
-    sources = []
+    sources = {}
 
     for subreddit in URLS:
-        sources += download.get_posts_and_download(subreddit)
+        more_sources = download.get_posts_and_download(subreddit)
+        for (key, value) in more_sources.items():
+            sources[key] = value
 
     music_name = 'music.m4a'
     music_name = os.path.join(download.DOWNLOAD_DIR, music_name)
@@ -34,10 +36,11 @@ def main():
         music_url, music_name
     )
     
-    video_processing.create_video(
+    sources_list = video_processing.create_video(
         download.DOWNLOAD_DIR,
         music_name,
-        video_name
+        video_name,
+        sources
     )
 
     Logger.log(f'Created video {video_name}')
@@ -45,7 +48,7 @@ def main():
     upload_video(
         video_name,
         get_title(),
-        get_description(sources, music_desc),
+        get_description(sources_list, music_desc),
         'Comedy',
         'Funny'
     )

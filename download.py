@@ -25,7 +25,7 @@ def is_video_url(url):
 
 def get_posts_and_download(url):
     r = requests.get(url, headers=HEADERS)
-    sources = []
+    sources = {}
     
     if r.ok:
         Logger.log(f'Downloaded webpage {url}')
@@ -33,9 +33,9 @@ def get_posts_and_download(url):
         posts = r.json()['data']['children']
 
         for post in posts:
-            source = parse_post_and_download(post)
-            if source is not None:
-                sources.append(source)
+            video_name, source_url = parse_post_and_download(post)
+            if video_name is not None:
+                sources[video_name] = source_url
 
     else:
         Logger.warn(f'Failed to download page {url}')
@@ -56,11 +56,11 @@ def parse_post_and_download(post):
         is_nsfw = post['over_18']
         if is_nsfw:
             Logger.log(f'Skipping post {title}, it is marked as NSFW.')
-            return None
+            return None, None
 
     if upvotes < MIN_UPVOTES:
         Logger.log(f'Skipping post {title}, not enough upvotes.')
-        return None
+        return None, None
 
     Logger.log('Post "{}"'.format(title))
 
@@ -70,13 +70,14 @@ def parse_post_and_download(post):
         video = url
     
     if video is None:
-        return None
+        return None, None
 
-    success = download_video(video, 'video_{}.mp4'.format(post['id']))
-    if success: 
-        return url
+    video_name = 'video_{}.mp4'.format(post['id'])
+    success = download_video(video, video_name)
+    if success:
+        return video_name, url
     else:
-        return None
+        return None, None
 
 
 def download_video(video, filename):

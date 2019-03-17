@@ -21,6 +21,7 @@ def upload_video(video_name, title, description, category, tags):
     print('\n\n\n\n' + '=' * 80)
     print(title)
     print(description)
+    print('\n\n\n\n' + '=' * 80)
     print(video_name)
-    
+
     os.system(command)

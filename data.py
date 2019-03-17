@@ -142,5 +142,8 @@ TITLES = [
     'Funny videos compilation | Try not to laugh challenge',
     'Best videos of today | Funny videos and gif compilation',
     'Try not to die laughing challenge',
-    'Top videos of the day | Try not to laugh'
+    'Top videos of the day | Try not to laugh',
+    'Funny Reddit gifs and video',
+    "Today's top Reddit gifs and videos",
+    'Hilarious gifs compilation | This will make your day'
 ]

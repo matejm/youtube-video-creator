@@ -18,9 +18,10 @@ def resize_audio(audio_file, duration):
     return audio
 
 
-def create_video(dirname, music_name, video_name):
+def create_video(dirname, music_name, video_name, sources):
     Logger.log('Joining videos...')
 
+    sources_list = []
     clips = []
 
     names = os.listdir(dirname)
@@ -45,6 +46,9 @@ def create_video(dirname, music_name, video_name):
             continue
 
         clips.append(clip)
+        source = sources.get(filename)
+        sources_list.append(source)
+        Logger.log(f'Added video {source} ({filename})')
 
     final_clip = concatenate_videoclips(clips, method='compose')
 
@@ -54,3 +58,5 @@ def create_video(dirname, music_name, video_name):
     final_clip = final_clip.set_audio(audio)
 
     final_clip.write_videofile(video_name, fps=30)
+
+    return sources_list
